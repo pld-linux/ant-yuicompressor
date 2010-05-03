@@ -69,7 +69,7 @@ Kod źródłowy %{name}.
 %prep
 %setup -qc
 mv n0ha-*/* .
-find %undos build.xml doc/example/build.xml
+%undos build.xml doc/example/build.xml
 
 echo "ant/ant-yuicompressor yuicompressor" > ant.conf
 echo >> doc/CHANGELOG
