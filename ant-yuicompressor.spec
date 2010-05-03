@@ -16,6 +16,7 @@ BuildRequires:	jdk
 BuildRequires:	jpackage-utils
 BuildRequires:	rpm-javaprov
 BuildRequires:	rpmbuild(macros) >= 1.555
+BuildRequires:	sed >= 4.0
 Requires:	jpackage-utils
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -68,6 +69,7 @@ Kod źródłowy %{name}.
 %prep
 %setup -qc
 mv n0ha-*/* .
+find %undos build.xml doc/example/build.xml
 
 echo "ant/ant-yuicompressor yuicompressor" > ant.conf
 echo >> doc/CHANGELOG
