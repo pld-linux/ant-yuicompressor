@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<antlib>
+	<taskdef name="yui-compressor"
+		classname="net.noha.tools.ant.yuicompressor.tasks.YuiCompressorTask">
+	</taskdef>
+</antlib>

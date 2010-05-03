@@ -10,6 +10,7 @@ License:	BSD
 Group:		Development/Languages/Java
 Source0:	http://github.com/n0ha/yui-compressor-ant-task/tarball/yui-compressor-ant-task-0.5/%{name}-%{version}.tar.gz
 # Source0-md5:	895d08ada70ec00d48b9b008a1054a8f
+Source1:	antlib.xml
 URL:		http://github.com/n0ha/yui-compressor-ant-task/
 BuildRequires:	ant
 BuildRequires:	jdk
@@ -86,6 +87,10 @@ CLASSPATH=$(build-classpath $required_jars)
 %ant jar javadocs \
 	-Dbuild.sysclasspath=first
 
+install -d net/noha/tools/ant/yuicompressor/tasks/
+cp -a %{SOURCE1} net/noha/tools/ant/yuicompressor/tasks/antlib.xml
+%{jar} uf build/bin/yui-compressor-ant-task-%{version}.jar net/noha/tools/ant/yuicompressor/tasks/antlib.xml
+
 %{jar} cf %{name}.src.jar -C src .
 
 %install
@@ -93,7 +98,7 @@ rm -rf $RPM_BUILD_ROOT
 
 # ant task
 install -d $RPM_BUILD_ROOT{%{_sysconfdir}/ant.d,%{_javadir}/ant}
-cp -a build/bin/yui-compressor-ant-task-0.5.jar $RPM_BUILD_ROOT%{_javadir}/ant/%{name}-%{version}.jar
+cp -a build/bin/yui-compressor-ant-task-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/ant/%{name}-%{version}.jar
 ln -s %{name}-%{version}.jar $RPM_BUILD_ROOT%{_javadir}/ant/%{name}.jar
 cp -a ant.conf $RPM_BUILD_ROOT%{_sysconfdir}/ant.d/yuicompressor
 
