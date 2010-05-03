@@ -99,9 +99,9 @@ CLASSPATH=$(build-classpath $required_jars)
 
 install -d net/noha/tools/ant/yuicompressor/tasks/
 cp -a %{SOURCE1} net/noha/tools/ant/yuicompressor/tasks/antlib.xml
-%{jar} uf build/bin/yui-compressor-ant-task-%{version}.jar net/noha/tools/ant/yuicompressor/tasks/antlib.xml
+%jar uf build/bin/yui-compressor-ant-task-%{version}.jar net/noha/tools/ant/yuicompressor/tasks/antlib.xml
 
-%{jar} cf %{name}.src.jar -C src .
+%jar cf %{name}.src.jar -C src .
 
 %install
 rm -rf $RPM_BUILD_ROOT
