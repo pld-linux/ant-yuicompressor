@@ -72,7 +72,17 @@ Kod źródłowy %{name}.
 mv n0ha-*/* .
 %undos build.xml doc/example/build.xml
 
-echo "ant/ant-yuicompressor yuicompressor" > ant.conf
+# name of second jar can not be substring of first jar. This part of code is
+# from /usr/bin/jar:
+#          for dep in `cat "$file"`; do
+#            case "$OPT_JAR_LIST" in
+#            *"$dep"*) ;;
+#            *) OPT_JAR_LIST="$OPT_JAR_LIST${OPT_JAR_LIST:+ }$dep"
+#            esac
+#          done
+# so if second name is contained in first it will be skipped.
+echo "yuicompressor ant/ant-yuicompressor" > ant.conf
+
 echo >> doc/CHANGELOG
 echo >> doc/LICENSE
 
