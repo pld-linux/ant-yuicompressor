@@ -1,6 +1,5 @@
 # TODO:
 # - pldize examples
-%include	/usr/lib/rpm/macros.java
 Summary:	Ant task for yuicompressor
 Summary(pl.UTF-8):	Wtyczka programu ant do yuicompressor
 Name:		ant-yuicompressor
